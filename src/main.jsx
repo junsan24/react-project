@@ -1,10 +1,6 @@
 import ReactDom from 'react-dom/client'
 import React from 'react'
-
-// Define App element
-const App = () => {
-  return <h1>Hello React!</h1>
-}
+import App from './App.jsx' // Import App Component
 
 // Create a root element
 const root = ReactDom.createRoot(document.getElementById('root'))
