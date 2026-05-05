@@ -1,9 +1,10 @@
-import TodoList from './components/TodoList'
+import CarList from "./components/CarList"
 
 const App = () => {
     return (
         <>
-           <TodoList />
+            <h1>Car Showroom</h1>
+            <CarList make="Toyota" />
         </>
     )
 }
