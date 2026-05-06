@@ -1,32 +1,20 @@
-const ShoppingList = ({items}) => {
-
-    const extendedItems = [
-        ...items,
-        { id: 4, name: 'Cocomilk'}
-    ]
-
-    return (
-        <ul>
-            {extendedItems.map((item) => (
-                <li key={item.id}>
-                    {item.name}
-                </li>
-            ))}
-        </ul>
-    )
-}
-
 const App = () => {
-    
-    const items = [
-        { id: 1, name: 'Bread' },
-        { id: 2, name: 'Milk' },
-        { id: 3, name: 'Eggs' },
-    ]
-    
+    let count = 0
+
+    const handleClick = () => console.log('React is fun again!')
+
+    const handleIncrement = () => {
+        count++
+        console.log(count)
+    }
+
     return (
         <>
-            <ShoppingList items={items} />
+            <button onClick={() => console.log('React is fun!')}>Click me</button>
+            <br/><br/>
+            <button onClick={handleClick}>Click me again</button>
+            <br/><br/>
+            <button onClick={handleIncrement}>Increment button</button>
         </>
     )
 }
