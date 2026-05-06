@@ -1,39 +1,27 @@
 const App = () => {
     
-    const onClickParent = () => console.log('Parent clicked.')
+    const handleClickEvent = (event) => {
+        event.preventDefault()
+        console.log('Link prevented')
+    }
 
-    const onClickChild = () => console.log('Child clicked.')
-
-    const onClickSecondChild = (e) => {
-        e.stopPropagation()
-        console.log('Second Child clicked')
+    const handleFormSubmit = (event) => {
+        event.preventDefault()
+        console.log('Form submitted')
+        const formData = new FormData(event.currentTarget)
+        const message = formData.get('message')
+        console.log('Message: '+ message)
     }
 
     return (
         <>
-            <div onClick={onClickParent} style={{
-                padding: '40px',
-                textAlign: 'center',
-                backgroundColor: 'lightgreen'
-            }}>
-                Parent
-                <div onClick={onClickChild} style={{
-                    padding: '40px',
-                    marginTop: '20px',
-                    textAlign: 'center',
-                    backgroundColor: 'lightblue'
-                }}>
-                    Child
-                </div>
-                <div onClick={onClickSecondChild} style={{
-                    padding: '40px',
-                    marginTop: '20px',
-                    textAlign: 'center',
-                    backgroundColor: 'lightblue'
-                }}>
-                    Second Child
-                </div>
-            </div>
+            <a href="https://example.com" onClick={handleClickEvent}>Link</a>
+            <br/>
+            <br/>
+            <form onSubmit={handleFormSubmit} style={{display: 'flex', gap: '10px'}}>
+                <input type="text" name="message" placeholder="Enter your message" style={{padding: '5px'}} />
+                <button type="submit">Send Message</button>
+            </form>
         </>
     )
 }
